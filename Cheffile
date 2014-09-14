@@ -1,3 +1,7 @@
+require 'yaml'
 site "https://supermarket.getchef.com/api/v1"
+recipes = YAML.load_file('recipes.yml')
 
-cookbook "nodejs"
+recipes.each do |recipe| 
+	cookbook recipe
+end
